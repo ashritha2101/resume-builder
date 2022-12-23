@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="icon" type="image/x-icon" href="assets/resume.png" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="login-page" id="login-page">
+      <div class="details">
+        <div class="heading">
+          <div class="sign-in-text">Sign In</div>
+          <div><img class="logo" src="assets/resume.png" /></div>
+        </div>
+
+        <div class="user-name">USERNAME</div>
+        <div>
+          <input
+            id="username-input"
+            type="text"
+            placeholder="Username"
+            autocomplete="off"
+            ;
+          />
+        </div>
+        <div class="password">PASSWORD</div>
+        <div>
+          <input
+            id="password-input"
+            type="password"
+            placeholder="Password"
+            autocomplete="off"
+            ;
+          />
+        </div>
+        <div class="sign-in-button" id="sign-in-button">Sign In</div>
+      </div>
+      <div class="sign-up-button">
+        <div class="login-text">Welcome to login!</div>
+        <div>Don't have an account?</div>
+        <div class="signup-button" id="signup-button">Sign Up</div>
+      </div>
+    </div>
+    <div class="signup-page" id="signup-page">
+      <div class="sign-up-button">
+        <div class="signup-text">Welcome to sign up!</div>
+        <div>Already have an account?</div>
+        <div class="signup-signin-button" id="signup-signin-button">
+          Sign In
+        </div>
+      </div>
+      <div class="sign-up-details">
+        <div class="heading">
+          <div class="sign-up-text">Sign Up</div>
+          <div><img class="logo" src="assets/resume.png" /></div>
+        </div>
+
+        <div class="user-name">USERNAME</div>
+        <div>
+          <input
+            id="signup-user"
+            type="text"
+            placeholder="Username"
+            autocomplete="off"
+            ;
+          />
+        </div>
+        <div class="password">PASSWORD</div>
+        <div>
+          <input
+            id="signup-pass"
+            type="password"
+            placeholder="Password"
+            autocomplete="off"
+            ;
+          />
+        </div>
+        <div class="password">CONFIRM PASSWORD</div>
+        <div>
+          <input
+            id="signup-confirm-pass"
+            type="password"
+            placeholder="Confirm Password"
+            autocomplete="off"
+            ;
+          />
+        </div>
+        <div class="sign-in-button" id="signup-register-button">Sign Up</div>
+      </div>
+    </div>
+    <div id="test" class="popup" style="display:none;">
+
+      <div class="edit-flex">
+        <div class="edit-exit-icon">
+          <p class="edit-close-button" id="exit-edit">Exit</p>
+        </div>
+        <div class="add-heading">My Resumes </div>
+        <div class="resumes-list" id="resumes-list" >
+          
+        </div>
+        
+        
+      </div>
+    </div>
+    <div class="home-page" id="template-page">
+    <div class="template-page" >
+    <div class="template-heading">
+      <div class="choose-template">CHOOSE YOUR TEMPLATE</div>
+      <div class="my-resume-template-div" id="my-resume-list-popup">My resume</div>
+      <div class="logout-icon-template-div" id="logout-template">Logout</div>
+    </div>
+    <div class="template-list">
+      <div><img  class="template-1" id="template-1"src="assets/template1.jpg"/></div>
+    </div>
+    </div>
+    </div>
+    <div class="resume-form" id="resume-form">
+ 
+      <div class="form">
+        <div class="form-heading">
+          <div class="enter-details">Enter your details below</div>
+          <div class="my-resume-div" id="back-button">Home Page</div>
+          <div class="logout-icon-div" id="logout-resume">Logout</div>
+        </div>
+        <div class="form-input">
+          <div class="left-side">
+            <div id="input-fullname">
+              <input
+                id="user-fullname"
+                type="text"
+                placeholder="Fullname"
+                minlength="3"
+                maxlength="20"
+                autocomplete="off";
+                required
+              />
+            </div>
+            <div id="input-degree">
+              <select name="degree" id="user-degree">
+                <option value="" disabled selected hidden>Degree</option>
+                <option value="Bachelor Of Engineering">BE</option>
+                <option value="Bachelor Of Science">BSc</option>
+                
+              </select>
+            </div>
+            <div id="input-goals">
+              <textarea rows="8" cols="30" placeholder="Professional goals" id="user-goals"></textarea>
+            </div>
+            <div id="input-hobbies">
+              <textarea rows="3" cols="30" placeholder="Hobbies seperated by comma" id="user-hobbies"></textarea>
+              <p class="hobbies-caution">min:1, max:4</p>
+            </div>
+            <div id="input-area-of-interest">
+              <textarea rows="4" cols="30" placeholder="Areas of interest seperated by comma" id="user-area-of-interest"></textarea>
+              <p class="aoi-caution">min:1, max:4</p>
+            </div>
+            <div id="input-certificates">
+              <textarea rows="5" cols="30" placeholder="Certifications seperated by comma" id="user-certificates"></textarea>
+              <p class="certificates-caution">min:1, max:6</p>
+            </div>
+          </div>
+          <div class="center-side">
+            <div id="input-number">
+              <input
+                id="user-phonenumber"
+                type="tel"
+                onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
+                minlength="10"
+                maxlength="10"
+                placeholder="Phone Number"
+                autocomplete="off";
+                required
+              />
+            </div>
+            <div id="input-email">
+              <input
+                id="user-email"
+                type="email"
+                minlength="10"
+                maxlength="70"
+                placeholder="Email Address"
+                autocomplete="off";
+                required
+              />
+            </div>
+            <div id="input-github">
+              <input
+                id="user-github"
+                type="url"
+                placeholder="Github Link"
+                minlength="10"
+                autocomplete="off";
+                required
+              />
+            </div>
+            <div id="input-dob">
+                <input id="user-dob" type="text" placeholder="Date Of Birth"
+                    onfocus="(this.type='date')" onblur="(this.type='text')" required/>
+            </div>
+            <div id="input-sex">
+              <select name="sex" id="user-sex">
+                <option  value="" disabled selected hidden>Gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+              </select>
+            </div>
+            <div id="input-nationality" >
+              <select id="user-nationality" name="nationality">
+                <option value="" disabled selected hidden>Nationality</option>
+                <option value="afghan">Afghan</option>
+                <option value="albanian">Albanian</option>
+                <option value="algerian">Algerian</option>
+                <option value="american">American</option>
+                <option value="andorran">Andorran</option>
+                <option value="angolan">Angolan</option>
+                <option value="antiguans">Antiguans</option>
+                <option value="argentinean">Argentinean</option>
+                <option value="armenian">Armenian</option>
+                <option value="australian">Australian</option>
+                <option value="austrian">Austrian</option>
+                <option value="azerbaijani">Azerbaijani</option>
+                <option value="bahamian">Bahamian</option>
+                <option value="bahraini">Bahraini</option>
+                <option value="bangladeshi">Bangladeshi</option>
+                <option value="barbadian">Barbadian</option>
+                <option value="barbudans">Barbudans</option>
+                <option value="batswana">Batswana</option>
+                <option value="belarusian">Belarusian</option>
+                <option value="belgian">Belgian</option>
+                <option value="belizean">Belizean</option>
+                <option value="beninese">Beninese</option>
+                <option value="bhutanese">Bhutanese</option>
+                <option value="bolivian">Bolivian</option>
+                <option value="bosnian">Bosnian</option>
+                <option value="brazilian">Brazilian</option>
+                <option value="british">British</option>
+                <option value="bruneian">Bruneian</option>
+                <option value="bulgarian">Bulgarian</option>
+                <option value="burkinabe">Burkinabe</option>
+                <option value="burmese">Burmese</option>
+                <option value="burundian">Burundian</option>
+                <option value="cambodian">Cambodian</option>
+                <option value="cameroonian">Cameroonian</option>
+                <option value="canadian">Canadian</option>
+                <option value="cape verdean">Cape Verdean</option>
+                <option value="central african">Central African</option>
+                <option value="chadian">Chadian</option>
+                <option value="chilean">Chilean</option>
+                <option value="chinese">Chinese</option>
+                <option value="colombian">Colombian</option>
+                <option value="comoran">Comoran</option>
+                <option value="congolese">Congolese</option>
+                <option value="costa rican">Costa Rican</option>
+                <option value="croatian">Croatian</option>
+                <option value="cuban">Cuban</option>
+                <option value="cypriot">Cypriot</option>
+                <option value="czech">Czech</option>
+                <option value="danish">Danish</option>
+                <option value="djibouti">Djibouti</option>
+                <option value="dominican">Dominican</option>
+                <option value="dutch">Dutch</option>
+                <option value="east timorese">East Timorese</option>
+                <option value="ecuadorean">Ecuadorean</option>
+                <option value="egyptian">Egyptian</option>
+                <option value="emirian">Emirian</option>
+                <option value="equatorial guinean">Equatorial Guinean</option>
+                <option value="eritrean">Eritrean</option>
+                <option value="estonian">Estonian</option>
+                <option value="ethiopian">Ethiopian</option>
+                <option value="fijian">Fijian</option>
+                <option value="filipino">Filipino</option>
+                <option value="finnish">Finnish</option>
+                <option value="french">French</option>
+                <option value="gabonese">Gabonese</option>
+                <option value="gambian">Gambian</option>
+                <option value="georgian">Georgian</option>
+                <option value="german">German</option>
+                <option value="ghanaian">Ghanaian</option>
+                <option value="greek">Greek</option>
+                <option value="grenadian">Grenadian</option>
+                <option value="guatemalan">Guatemalan</option>
+                <option value="guinea-bissauan">Guinea-Bissauan</option>
+                <option value="guinean">Guinean</option>
+                <option value="guyanese">Guyanese</option>
+                <option value="haitian">Haitian</option>
+                <option value="herzegovinian">Herzegovinian</option>
+                <option value="honduran">Honduran</option>
+                <option value="hungarian">Hungarian</option>
+                <option value="icelander">Icelander</option>
+                <option value="Indian">Indian</option>
+                <option value="indonesian">Indonesian</option>
+                <option value="iranian">Iranian</option>
+                <option value="iraqi">Iraqi</option>
+                <option value="irish">Irish</option>
+                <option value="israeli">Israeli</option>
+                <option value="italian">Italian</option>
+                <option value="ivorian">Ivorian</option>
+                <option value="jamaican">Jamaican</option>
+                <option value="japanese">Japanese</option>
+                <option value="jordanian">Jordanian</option>
+                <option value="kazakhstani">Kazakhstani</option>
+                <option value="kenyan">Kenyan</option>
+                <option value="kittian and nevisian">Kittian and Nevisian</option>
+                <option value="kuwaiti">Kuwaiti</option>
+                <option value="kyrgyz">Kyrgyz</option>
+                <option value="laotian">Laotian</option>
+                <option value="latvian">Latvian</option>
+                <option value="lebanese">Lebanese</option>
+                <option value="liberian">Liberian</option>
+                <option value="libyan">Libyan</option>
+                <option value="liechtensteiner">Liechtensteiner</option>
+                <option value="lithuanian">Lithuanian</option>
+                <option value="luxembourger">Luxembourger</option>
+                <option value="macedonian">Macedonian</option>
+                <option value="malagasy">Malagasy</option>
+                <option value="malawian">Malawian</option>
+                <option value="malaysian">Malaysian</option>
+                <option value="maldivan">Maldivan</option>
+                <option value="malian">Malian</option>
+                <option value="maltese">Maltese</option>
+                <option value="marshallese">Marshallese</option>
+                <option value="mauritanian">Mauritanian</option>
+                <option value="mauritian">Mauritian</option>
+                <option value="mexican">Mexican</option>
+                <option value="micronesian">Micronesian</option>
+                <option value="moldovan">Moldovan</option>
+                <option value="monacan">Monacan</option>
+                <option value="mongolian">Mongolian</option>
+                <option value="moroccan">Moroccan</option>
+                <option value="mosotho">Mosotho</option>
+                <option value="motswana">Motswana</option>
+                <option value="mozambican">Mozambican</option>
+                <option value="namibian">Namibian</option>
+                <option value="nauruan">Nauruan</option>
+                <option value="nepalese">Nepalese</option>
+                <option value="new zealander">New Zealander</option>
+                <option value="ni-vanuatu">Ni-Vanuatu</option>
+                <option value="nicaraguan">Nicaraguan</option>
+                <option value="nigerien">Nigerien</option>
+                <option value="north korean">North Korean</option>
+                <option value="northern irish">Northern Irish</option>
+                <option value="norwegian">Norwegian</option>
+                <option value="omani">Omani</option>
+                <option value="pakistani">Pakistani</option>
+                <option value="palauan">Palauan</option>
+                <option value="panamanian">Panamanian</option>
+                <option value="papua new guinean">Papua New Guinean</option>
+                <option value="paraguayan">Paraguayan</option>
+                <option value="peruvian">Peruvian</option>
+                <option value="polish">Polish</option>
+                <option value="portuguese">Portuguese</option>
+                <option value="qatari">Qatari</option>
+                <option value="romanian">Romanian</option>
+                <option value="russian">Russian</option>
+                <option value="rwandan">Rwandan</option>
+                <option value="saint lucian">Saint Lucian</option>
+                <option value="salvadoran">Salvadoran</option>
+                <option value="samoan">Samoan</option>
+                <option value="san marinese">San Marinese</option>
+                <option value="sao tomean">Sao Tomean</option>
+                <option value="saudi">Saudi</option>
+                <option value="scottish">Scottish</option>
+                <option value="senegalese">Senegalese</option>
+                <option value="serbian">Serbian</option>
+                <option value="seychellois">Seychellois</option>
+                <option value="sierra leonean">Sierra Leonean</option>
+                <option value="singaporean">Singaporean</option>
+                <option value="slovakian">Slovakian</option>
+                <option value="slovenian">Slovenian</option>
+                <option value="solomon islander">Solomon Islander</option>
+                <option value="somali">Somali</option>
+                <option value="south african">South African</option>
+                <option value="south korean">South Korean</option>
+                <option value="spanish">Spanish</option>
+                <option value="sri lankan">Sri Lankan</option>
+                <option value="sudanese">Sudanese</option>
+                <option value="surinamer">Surinamer</option>
+                <option value="swazi">Swazi</option>
+                <option value="swedish">Swedish</option>
+                <option value="swiss">Swiss</option>
+                <option value="syrian">Syrian</option>
+                <option value="taiwanese">Taiwanese</option>
+                <option value="tajik">Tajik</option>
+                <option value="tanzanian">Tanzanian</option>
+                <option value="thai">Thai</option>
+                <option value="togolese">Togolese</option>
+                <option value="tongan">Tongan</option>
+                <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option>
+                <option value="tunisian">Tunisian</option>
+                <option value="turkish">Turkish</option>
+                <option value="tuvaluan">Tuvaluan</option>
+                <option value="ugandan">Ugandan</option>
+                <option value="ukrainian">Ukrainian</option>
+                <option value="uruguayan">Uruguayan</option>
+                <option value="uzbekistani">Uzbekistani</option>
+                <option value="venezuelan">Venezuelan</option>
+                <option value="vietnamese">Vietnamese</option>
+                <option value="welsh">Welsh</option>
+                <option value="yemenite">Yemenite</option>
+                <option value="zambian">Zambian</option>
+                <option value="zimbabwean">Zimbabwean</option>
+              </select>
+            </div>
+            <div id="input-languages">
+              <textarea rows="2" cols="30" placeholder="Known Languages" id="user-languages"></textarea>
+              <!-- <textarea placeholder="Known Languages" id="user-languages" userrows="2" cols="30"  required> -->
+              
+            </div>
+            <div id="input-address">
+              <textarea rows="10" cols="30" placeholder="Address" id="user-address"></textarea>
+            </div>
+            <div id="input-achievements">
+              <textarea rows="4" cols="30" placeholder="Achievements seperated by comma" id="user-achievement"></textarea>
+              <p class="achievement-caution">min:1, max:4</p>
+            </div>
+            <div id="input-project">
+              <textarea rows="5" cols="30" placeholder="Projects title seperated by comma" id="user-project"></textarea>
+              <p class="proj-caution">min:1, max:4</p>
+            </div>
+          </div>
+          <div class="right-side">
+            <div class="unique-id">
+              <textarea rows="2" cols="30" placeholder="Unique number" id="unique-number"></textarea>
+            </div>
+            <div class="sslc">
+              <div class="sslc-heading">
+                SECONDARY SCHOOL
+              </div>
+              <div class="sslc-school">
+                <textarea rows="2" cols="30" placeholder="School name" id="sslc-school"></textarea>
+              </div>
+              <div class="sslc-cgpa">
+                <textarea rows="1" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" cols="30" placeholder="Percentage" id="sslc-cgpa"></textarea>
+              </div>
+              <div class="sslc-year">
+                <textarea rows="2" cols="30" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" placeholder="Passing year" id="sslc-year" minlength="4"></textarea>
+              </div>
+            </div>
+            <div class="hsc">
+              <div class="hsc-heading">
+                HIGHER SECONDARY EDUCATION
+              </div>
+              <div class="hsc-school">
+                <textarea rows="2" cols="30" placeholder="School name" id="hsc-school"></textarea>
+              </div>
+              <div class="hsc-cgpa">
+                <textarea rows="1" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" cols="30" placeholder="Percentage " id="hsc-cgpa"></textarea>
+              </div>
+              <div class="hsc-year">
+                <textarea rows="2" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" cols="30" placeholder="Passing year" id="hsc-year" minlength="4"></textarea>
+              </div>
+            </div>
+            <div class="ug">
+              <div class="ug-heading">
+                UNDERGRADUATE DEGREE
+              </div>
+              <div class="ug-clg">
+                <textarea rows="2" cols="30" placeholder="College name" id="ug-clg"></textarea>
+              </div>
+              <div class="ug-cgpa">
+                <textarea rows="1" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" cols="30" placeholder="cgpa" id="ug-cgpa"></textarea>
+              </div>
+              <div class="ug-year">
+                <textarea rows="2" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" cols="30" placeholder="Passing year" id="ug-year" minlength="4"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="submit-button-div">
+          <div class="submit-button-box"><input id="submit-button" type="submit" ></div>
+        </div>
+      </div>
+      
+
+    </div>
+    <div class="navigation" id="navigation">
+    <div class="div-print"><button onclick="window.print()" id="print-resume-button">print</button></div>
+  
+      <div class="div-home-button"><button id="home-button">Home page</button></div></div>
+      <div class="main-page" id="print-page">
+      
+      <div class="personal-details">
+        <div class="name-and-dept">
+          <div class="name" id="resume-fullname">ASHRITHA S</div>
+          <div class="dept" id="resume-degree">BACHELOR OF ENGINEERING</div>
+        </div>
+          <div class="user-goal">
+            <div class="goals-heading" >PROFESSIONAL GOALS</div>
+            <div class="goals-content" id="resume-goals">
+              Searching for a platform to implement my skills and share my
+              knowledge. I will be a good part of the team's success through my
+              hard work and handle any situation in a well mannered way.
+            </div>
+          </div>
+          <div class="hobbies-container">
+            <div class="hobbies-heading">HOBBIES</div>
+            <div class="hobbies-content" id="resume-hobbies">
+            </div>
+          </div>
+          <div class="area-of-interest-container">
+            <div class="area-of-interest-heading">AREAS OF INTEREST</div>
+            <div class="area-of-interest-content" id="resume-aoi">
+               
+            </div>
+          </div>
+          <div class="project-container">
+            <div class="project-heading">PROJECTS</div>
+            <div class="project-content" id="resume-proj">
+               
+            </div>
+          </div>
+          
+        </div>
+      <div class="technical-details">
+        <div class="contact-details">
+            <div class="phone-number">
+              <div><img class="phone-img" src=assets/phone.png></div>
+              <div id="resume-phone">7904210910</div>
+            </div>
+            <div class="email-add">
+              <div><img class="email-img" src=assets/email.png></div>
+              <div id="resume-mail">adorableashritha@gmail.com</div>
+            </div>
+            <div class="github-link">
+              <div><img class="github-img" src=assets/github.png></div>
+              <div class="user-github" id="resume-github">
+                https://github.com/ashritha2101www.linkedin.com/in/ashrithashankar
+              </div>
+            </div>
+          </div>
+          <div class="personal-profile">
+            <div class="personal-profile-heading">PERSONAL PROFILE</div>
+            <div class="user-personal-details">
+            <div class="category">
+                <div> Date Of Birth</div>
+                <div> Sex</div>
+                <div> Nationality</div>
+                <div> Languages Known</div>
+                <div > Address</div>
+            </div>
+            <div class="user-values">
+                <div id="resume-dob"> :21.01.2002</div>
+                <div id="resume-sex"> :Female</div>
+                <div id="resume-nationality"> :Indian</div>
+                <div id="resume-lang" class="user-known-lang"> :English, Tamil, Telugu, Hindi</div>
+                <div id="resume-add" class="user-address"> :3/180-1,Annamalai nagar, near anand electronics pvt ltd, Hosur-635109,Tamil nadu.</div>
+            </div>
+        </div>
+      </div>
+      <div class="education-containter">
+        <div class="education-heading"> EDUCATION DETAILS</div>
+        <div class="education-details">
+            <ul>
+                <li>Completed SSLC in <span id="resume-10th-school">the ashok leyland school</span> with <span id="resume-10th-percentage">95</span> percentage(<span id="resume-10th-year">2017</span>)</li>
+                <li>Completed HSC in <span id="resume-12th-school">the ashok leyland school</span> with <span id="resume-12th-percentage">92</span> percentage(<span id="resume-12th-year">2019</span>)</li>
+                <li>Completed <span id="resume-ug-degree">BE</span> in <span id="resume-ug-clg">bannariamman institute of technology</span> with <span id="resume-ug-percentage">9.5</span> cgpa(<span id="resume-ug-year">2023</span>)</li>
+                
+            </ul>
+        </div>
+      </div>
+      <div class="certificates-container">
+        <div class="certificates-heading">
+            CERTIFICATIONS
+        </div>
+        <div class="certificates-content" id="resume-certificate">
+            
+        </div>
+      </div>
+      <div class="achievement-container">
+        <div class="achievement-heading">
+            ACHIEVEMENTS
+        </div>
+        <div class="achievement-content" id="resume-achievement">
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </body>
+  <script src="./index.js"></script>
+</html>
